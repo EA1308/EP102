@@ -70,6 +70,7 @@
 		FA38DDD6269F2AEC00F192B7 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA38DD95269F2AEC00F192B7 /* TabBarController.swift */; };
 		FA38DDD7269F2AEC00F192B7 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA38DD97269F2AEC00F192B7 /* BaseViewController.swift */; };
 		FA38DDDA269F2B1900F192B7 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = FA38DDD9269F2B1900F192B7 /* Kingfisher */; };
+		FA3CD73C269F2DAA00A56BCA /* TestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3CD73B269F2DAA00A56BCA /* TestManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -136,6 +137,7 @@
 		FA38DD94269F2AEC00F192B7 /* TabBarController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TabBarController.storyboard; sourceTree = "<group>"; };
 		FA38DD95269F2AEC00F192B7 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		FA38DD97269F2AEC00F192B7 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		FA3CD73B269F2DAA00A56BCA /* TestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestManager.swift; sourceTree = "<group>"; };
 		FAA08192269F2A760001D7E9 /* EP102.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EP102.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -244,6 +246,7 @@
 				FA38DD48269F2AEC00F192B7 /* ProductsManager.swift */,
 				FA38DD49269F2AEC00F192B7 /* SavedProductManager.swift */,
 				FA38DD4A269F2AEC00F192B7 /* RecentlyViewedManager.swift */,
+				FA3CD73B269F2DAA00A56BCA /* TestManager.swift */,
 			);
 			path = NetworkManagers;
 			sourceTree = "<group>";
@@ -724,6 +727,7 @@
 				FA38DDC1269F2AEC00F192B7 /* WideCell.swift in Sources */,
 				FA38DD9F269F2AEC00F192B7 /* CoordinatorDelegate.swift in Sources */,
 				FA38DDCA269F2AEC00F192B7 /* ProfileCoordinator.swift in Sources */,
+				FA3CD73C269F2DAA00A56BCA /* TestManager.swift in Sources */,
 				FA38DDAF269F2AEC00F192B7 /* SavedCoordinator.swift in Sources */,
 				FA38DD9C269F2AEC00F192B7 /* AppCoordinator.swift in Sources */,
 				FA38DDBC269F2AEC00F192B7 /* HomeViewController.swift in Sources */,
