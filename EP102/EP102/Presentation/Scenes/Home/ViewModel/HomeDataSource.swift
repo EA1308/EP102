@@ -15,6 +15,7 @@ class HomeDataSource: NSObject {
     var categoryList: [Product]?
     var recentlyViewedProductsList: [Product]?
     var savedItems: [SavedProduct]?
+    var brandList: [Brand]?
     
     
     init(with tableView: UITableView, viewModel: HomeViewModelProtocol) {
@@ -44,6 +45,10 @@ class HomeDataSource: NSObject {
             self?.savedItems = savedItemsList
             self?.tableView.reloadData()
         }
+        viewModel.fetchBrands { [weak self] brands in
+            self?.brandList = brands
+            self?.tableView.reloadData()
+        }
         
     }
     
@@ -52,7 +57,7 @@ class HomeDataSource: NSObject {
 
 extension HomeDataSource: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return 7
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -96,6 +101,12 @@ extension HomeDataSource: UITableViewDataSource, UITableViewDelegate {
             cell.configure(with: savedItems)
             return cell
         }
+        
+        if indexPath.row == 6 {
+            let cell = tableView.deque(BrandsCell.self, for: indexPath)
+            cell.configure(with: brandList)
+            return cell
+        }
         return cell
         
     }
@@ -117,6 +128,8 @@ extension HomeDataSource: UITableViewDataSource, UITableViewDelegate {
             return 280
         case 5:
             return 295
+        case 6:
+            return 300
         default:
             return UITableView.automaticDimension
         }

@@ -16,6 +16,7 @@ class HomeViewController: BaseViewController {
     private var categoryManager: CategoryManagerProtocol!
     private var recentlyViewedManager: RecentlyViewedManagerProtocol!
     private var savedManager:SavedProductManagerProtocol!
+    private var brandsManager: BrandManagerProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +36,7 @@ class HomeViewController: BaseViewController {
         tableView.registerNib(class: ProductCell.self)
         tableView.registerNib(class: RecentlyViewedCell.self)
         tableView.registerNib(class: SavedCell.self)
+        tableView.registerNib(class: BrandsCell.self)
     }
     
     func configureDataSource() {
@@ -42,7 +44,8 @@ class HomeViewController: BaseViewController {
         categoryManager = CategoryManager()
         recentlyViewedManager = RecentlyViewedManager()
         savedManager = SavedProductManager()
-        viewModel = HomeViewModel(with: productsManager, categoryManager: categoryManager, recentlyViewedManager: recentlyViewedManager, savedManager: savedManager, controller: self)
+        brandsManager = BrandManager()
+        viewModel = HomeViewModel(with: productsManager, categoryManager: categoryManager, recentlyViewedManager: recentlyViewedManager, savedManager: savedManager, brandManager: brandsManager, controller: self)
         dataSource = HomeDataSource(with: tableView, viewModel: viewModel)
         dataSource.refresh()
     }

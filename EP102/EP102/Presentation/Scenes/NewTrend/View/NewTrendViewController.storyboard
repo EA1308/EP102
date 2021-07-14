@@ -33,27 +33,34 @@
                                     </imageView>
                                 </subviews>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1oQ-0j-ufb">
-                                <rect key="frame" x="0.0" y="46" width="414" height="690"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Vbz-6M-8os">
+                                <rect key="frame" x="0.0" y="51" width="414" height="685"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fdR-db-nEz">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="1oQ-0j-ufb" secondAttribute="trailing" id="4A7-UD-eCa"/>
                             <constraint firstAttribute="trailing" secondItem="muO-Pj-xX8" secondAttribute="trailing" constant="20" id="BOO-N0-h6a"/>
-                            <constraint firstItem="1oQ-0j-ufb" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Bca-Rx-VGz"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Vbz-6M-8os" secondAttribute="bottom" id="MEn-0d-b0W"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Vbz-6M-8os" secondAttribute="trailing" id="P1R-Rg-wdI"/>
+                            <constraint firstItem="Vbz-6M-8os" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="PWe-4V-zXa"/>
                             <constraint firstItem="muO-Pj-xX8" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="YIA-rj-nS3"/>
+                            <constraint firstItem="Vbz-6M-8os" firstAttribute="top" secondItem="muO-Pj-xX8" secondAttribute="bottom" constant="5" id="axT-2O-GEA"/>
                             <constraint firstItem="muO-Pj-xX8" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="ojb-wn-KjA"/>
-                            <constraint firstItem="1oQ-0j-ufb" firstAttribute="top" secondItem="muO-Pj-xX8" secondAttribute="bottom" id="rmQ-fr-eM5"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="1oQ-0j-ufb" secondAttribute="bottom" id="rx4-2f-d2W"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="collectionView" destination="Vbz-6M-8os" id="d5e-LT-XqF"/>
                         <outlet property="imgFilter" destination="kQ3-wH-U9Q" id="2UM-Ky-JiC"/>
                         <outlet property="imgSort" destination="US4-9T-DEU" id="DG0-jL-7Wp"/>
-                        <outlet property="tableView" destination="1oQ-0j-ufb" id="lsH-Y4-sMa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

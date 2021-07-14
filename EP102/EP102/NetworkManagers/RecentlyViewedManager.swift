@@ -24,5 +24,4 @@ protocol RecentlyViewedManagerProtocol: AnyObject {
             }
         }
     }
-
 }
