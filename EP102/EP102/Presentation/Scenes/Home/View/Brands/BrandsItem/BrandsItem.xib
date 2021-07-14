@@ -17,10 +17,10 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GJQ-gP-Tty">
-                        <rect key="frame" x="19" y="4.5" width="62" height="41"/>
+                        <rect key="frame" x="19" y="9.5" width="62" height="31"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IkF-t4-qif">
-                                <rect key="frame" x="10" y="10" width="42" height="21"/>
+                                <rect key="frame" x="10" y="5" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -30,8 +30,8 @@
                         <constraints>
                             <constraint firstItem="IkF-t4-qif" firstAttribute="leading" secondItem="GJQ-gP-Tty" secondAttribute="leading" constant="10" id="Ifd-Hy-caH"/>
                             <constraint firstAttribute="trailing" secondItem="IkF-t4-qif" secondAttribute="trailing" constant="10" id="Igs-PL-xJO"/>
-                            <constraint firstItem="IkF-t4-qif" firstAttribute="top" secondItem="GJQ-gP-Tty" secondAttribute="top" constant="10" id="eWl-jQ-ajC"/>
-                            <constraint firstAttribute="bottom" secondItem="IkF-t4-qif" secondAttribute="bottom" constant="10" id="vA5-0Q-I0q"/>
+                            <constraint firstItem="IkF-t4-qif" firstAttribute="top" secondItem="GJQ-gP-Tty" secondAttribute="top" constant="5" id="eWl-jQ-ajC"/>
+                            <constraint firstAttribute="bottom" secondItem="IkF-t4-qif" secondAttribute="bottom" constant="5" id="vA5-0Q-I0q"/>
                         </constraints>
                     </view>
                 </subviews>
