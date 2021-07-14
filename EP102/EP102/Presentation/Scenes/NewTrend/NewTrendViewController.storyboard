@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--New Trend View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="NewTrendViewController" id="Y6W-OH-hqX" customClass="NewTrendViewController" customModule="EbayApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="muO-Pj-xX8">
+                                <rect key="frame" x="20" y="10" width="374" height="36"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_sort" translatesAutoresizingMaskIntoConstraints="NO" id="US4-9T-DEU">
+                                        <rect key="frame" x="0.0" y="0.0" width="179" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="xxv-Xc-Hs9"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_filter" translatesAutoresizingMaskIntoConstraints="NO" id="kQ3-wH-U9Q">
+                                        <rect key="frame" x="195" y="0.0" width="179" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="xSB-xZ-WIa"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1oQ-0j-ufb">
+                                <rect key="frame" x="0.0" y="46" width="414" height="690"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="1oQ-0j-ufb" secondAttribute="trailing" id="4A7-UD-eCa"/>
+                            <constraint firstAttribute="trailing" secondItem="muO-Pj-xX8" secondAttribute="trailing" constant="20" id="BOO-N0-h6a"/>
+                            <constraint firstItem="1oQ-0j-ufb" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Bca-Rx-VGz"/>
+                            <constraint firstItem="muO-Pj-xX8" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="YIA-rj-nS3"/>
+                            <constraint firstItem="muO-Pj-xX8" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="ojb-wn-KjA"/>
+                            <constraint firstItem="1oQ-0j-ufb" firstAttribute="top" secondItem="muO-Pj-xX8" secondAttribute="bottom" id="rmQ-fr-eM5"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="1oQ-0j-ufb" secondAttribute="bottom" id="rx4-2f-d2W"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imgFilter" destination="kQ3-wH-U9Q" id="2UM-Ky-JiC"/>
+                        <outlet property="imgSort" destination="US4-9T-DEU" id="DG0-jL-7Wp"/>
+                        <outlet property="tableView" destination="1oQ-0j-ufb" id="lsH-Y4-sMa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5.7971014492753632" y="55.434782608695656"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ic_filter" width="120" height="27"/>
+        <image name="ic_sort" width="120" height="27"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

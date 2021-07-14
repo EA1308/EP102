@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="RecentlyViewedItem" customModule="EbayApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="160" height="218"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="160" height="218"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jvV-Iw-0zp">
+                        <rect key="frame" x="5" y="53" width="150" height="160"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GMu-Px-h2Z">
+                                <rect key="frame" x="16" y="107.5" width="111" height="33.5"/>
+                                <string key="text">Pull&amp;Bear slim fit 
+t-shirt in rib in white</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.61568627450980395" green="0.61960784313725492" blue="0.63921568627450975" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-heart" translatesAutoresizingMaskIntoConstraints="NO" id="JKb-zv-hs9">
+                                <rect key="frame" x="114" y="72" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="8s0-Ar-xAy"/>
+                                    <constraint firstAttribute="height" constant="20" id="ryX-Zd-VTA"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YiX-ER-RpL">
+                                <rect key="frame" x="67" y="-64" width="75" height="111"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="111" id="GSt-kQ-caJ"/>
+                                    <constraint firstAttribute="width" constant="75" id="RK0-HA-NfB"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="GMu-Px-h2Z" secondAttribute="bottom" constant="19" id="4RW-eh-8Bq"/>
+                            <constraint firstItem="GMu-Px-h2Z" firstAttribute="leading" secondItem="jvV-Iw-0zp" secondAttribute="leading" constant="16" id="7Lu-CS-eiC"/>
+                            <constraint firstAttribute="trailing" secondItem="GMu-Px-h2Z" secondAttribute="trailing" constant="23" id="AeI-Nt-bO9"/>
+                            <constraint firstItem="YiX-ER-RpL" firstAttribute="top" secondItem="jvV-Iw-0zp" secondAttribute="top" constant="-64" id="Fvx-xG-d5X"/>
+                            <constraint firstAttribute="bottom" secondItem="JKb-zv-hs9" secondAttribute="bottom" constant="68" id="ZjH-Z0-q61"/>
+                            <constraint firstItem="YiX-ER-RpL" firstAttribute="leading" secondItem="jvV-Iw-0zp" secondAttribute="leading" constant="67" id="mmg-dQ-ZLB"/>
+                            <constraint firstAttribute="height" constant="160" id="uiX-Xn-epI"/>
+                            <constraint firstAttribute="trailing" secondItem="JKb-zv-hs9" secondAttribute="trailing" constant="16" id="v6o-0s-iRW"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="jvV-Iw-0zp" secondAttribute="bottom" constant="5" id="5V7-Ur-itv"/>
+                <constraint firstItem="jvV-Iw-0zp" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="Kvl-jc-iAT"/>
+                <constraint firstAttribute="trailing" secondItem="jvV-Iw-0zp" secondAttribute="trailing" constant="5" id="TiX-JF-7M9"/>
+            </constraints>
+            <connections>
+                <outlet property="backView" destination="jvV-Iw-0zp" id="Rof-9Q-1hF"/>
+                <outlet property="imagePoster" destination="YiX-ER-RpL" id="tWo-lG-pEx"/>
+                <outlet property="labelDescription" destination="GMu-Px-h2Z" id="8FD-sw-vw3"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="70.3125"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="ic-heart" width="24" height="24"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
