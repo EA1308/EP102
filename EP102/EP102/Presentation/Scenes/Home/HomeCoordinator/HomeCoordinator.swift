@@ -27,11 +27,7 @@ final class HomeCoordinator: CoordinatorProtocol {
     
     }
     
-    func start() {
-        
-    }
-    
-    func proceedToDetails() {
+    func proceedToNewTrends() {
         let vc = NewTrendViewController.instantiateFromStoryboard()
         vc.coordinator = self
         vc.title = "New Trend"
@@ -43,6 +39,23 @@ final class HomeCoordinator: CoordinatorProtocol {
         self.navigationController?.navigationBar.backgroundColor = .clear
         self.navigationController?.navigationBar.tintColor = UIColor.black
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func proceedToDetails(with product: Product) {
+        let vc = DetailInfoViewController.instantiateFromStoryboard()
+        vc.coordinator = self
+        vc.product = product
+        vc.title = nil
+        navigationController?.isNavigationBarHidden = false
+//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+//        self.navigationController?.navigationBar.shadowImage = UIImage()
+//        self.navigationController?.navigationBar.isTranslucent = true
+//        self.navigationController?.view.backgroundColor = .clear
+//        self.navigationController?.navigationBar.backgroundColor = .clear
+//        self.navigationController?.navigationBar.tintColor = UIColor.black
+
+        self.navigationController?.pushViewController(vc, animated: true)
+        
     }
     
     

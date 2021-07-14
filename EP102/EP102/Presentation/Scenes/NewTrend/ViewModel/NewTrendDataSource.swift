@@ -53,5 +53,11 @@ extension NewTrendDataSource: UICollectionViewDelegate, UICollectionViewDataSour
         cell.configure(with: productsList?[indexPath.row])
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let product = productsList?[indexPath.row] else {return}
+        viewModel.controller.coordinator?.proceedToDetails(with: product)
+        
+    }
 }
 

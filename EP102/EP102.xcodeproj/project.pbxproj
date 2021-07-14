@@ -82,6 +82,8 @@
 		FA3CD756269F47E400A56BCA /* DetailInfoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3CD755269F47E400A56BCA /* DetailInfoDataSource.swift */; };
 		FA3CD75C269F48A600A56BCA /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3CD75A269F48A600A56BCA /* ImageCell.swift */; };
 		FA3CD75D269F48A600A56BCA /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3CD75B269F48A600A56BCA /* ImageCell.xib */; };
+		FA3CD761269F62DD00A56BCA /* DescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3CD75F269F62DD00A56BCA /* DescriptionCell.swift */; };
+		FA3CD762269F62DD00A56BCA /* DescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3CD760269F62DD00A56BCA /* DescriptionCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -160,6 +162,8 @@
 		FA3CD755269F47E400A56BCA /* DetailInfoDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoDataSource.swift; sourceTree = "<group>"; };
 		FA3CD75A269F48A600A56BCA /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		FA3CD75B269F48A600A56BCA /* ImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
+		FA3CD75F269F62DD00A56BCA /* DescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionCell.swift; sourceTree = "<group>"; };
+		FA3CD760269F62DD00A56BCA /* DescriptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DescriptionCell.xib; sourceTree = "<group>"; };
 		FAA08192269F2A760001D7E9 /* EP102.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EP102.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -643,6 +647,7 @@
 		FA3CD753269F47BE00A56BCA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FA3CD75E269F62C900A56BCA /* DescriptionCell */,
 				FA3CD759269F488300A56BCA /* ImageCell */,
 				FA3CD74F269F43F900A56BCA /* DetailInfoViewController.swift */,
 				FA3CD751269F441900A56BCA /* DetailInfoViewController.storyboard */,
@@ -665,6 +670,15 @@
 				FA3CD75B269F48A600A56BCA /* ImageCell.xib */,
 			);
 			path = ImageCell;
+			sourceTree = "<group>";
+		};
+		FA3CD75E269F62C900A56BCA /* DescriptionCell */ = {
+			isa = PBXGroup;
+			children = (
+				FA3CD75F269F62DD00A56BCA /* DescriptionCell.swift */,
+				FA3CD760269F62DD00A56BCA /* DescriptionCell.xib */,
+			);
+			path = DescriptionCell;
 			sourceTree = "<group>";
 		};
 		FAA08189269F2A760001D7E9 = {
@@ -778,6 +792,7 @@
 				FA38DDC0269F2AEC00F192B7 /* ProductCell.xib in Resources */,
 				FA38DDCD269F2AEC00F192B7 /* NewTrendViewController.storyboard in Resources */,
 				FA3CD749269F344800A56BCA /* BrandsCell.xib in Resources */,
+				FA3CD762269F62DD00A56BCA /* DescriptionCell.xib in Resources */,
 				FA38DDD4269F2AEC00F192B7 /* CartViewController.storyboard in Resources */,
 				FA38DDB6269F2AEC00F192B7 /* SavedCell.xib in Resources */,
 				FA38DDB9269F2AEC00F192B7 /* RecentlyViewedCell.xib in Resources */,
@@ -829,6 +844,7 @@
 				FA3CD75C269F48A600A56BCA /* ImageCell.swift in Sources */,
 				FA38DDAF269F2AEC00F192B7 /* SavedCoordinator.swift in Sources */,
 				FA38DD9C269F2AEC00F192B7 /* AppCoordinator.swift in Sources */,
+				FA3CD761269F62DD00A56BCA /* DescriptionCell.swift in Sources */,
 				FA38DDBC269F2AEC00F192B7 /* HomeViewController.swift in Sources */,
 				FA38DDA5269F2AEC00F192B7 /* UICollectionView + Extension.swift in Sources */,
 				FA38DD9A269F2AEC00F192B7 /* SavedProduct.swift in Sources */,

@@ -10,10 +10,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="44" id="KGk-i7-Jjw" customClass="ImageCell" customModule="EP102" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="ImageCell" customModule="EP102" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="330"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="375" height="330"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -24,7 +24,7 @@
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qhE-EH-pGl">
-                        <rect key="frame" x="20" y="236" width="335" height="84"/>
+                        <rect key="frame" x="20" y="239" width="335" height="84"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Kj9-YB-y6g">
                                 <rect key="frame" x="16" y="52" width="90" height="14"/>
@@ -51,7 +51,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Women's hoodie " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Nf-hG-qeq">
-                                <rect key="frame" x="16" y="19" width="132" height="20.5"/>
+                                <rect key="frame" x="16" y="19" width="299" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -79,6 +79,7 @@
                             <constraint firstItem="pFi-Ej-Mtj" firstAttribute="leading" secondItem="Kj9-YB-y6g" secondAttribute="trailing" constant="8" id="03t-2c-ONg"/>
                             <constraint firstItem="7Nf-hG-qeq" firstAttribute="leading" secondItem="qhE-EH-pGl" secondAttribute="leading" constant="16" id="0BV-Ys-M2t"/>
                             <constraint firstAttribute="bottom" secondItem="Kj9-YB-y6g" secondAttribute="bottom" constant="18" id="I4f-Z4-TaA"/>
+                            <constraint firstAttribute="trailing" secondItem="7Nf-hG-qeq" secondAttribute="trailing" constant="20" id="Ibc-Ne-oEn"/>
                             <constraint firstItem="7Nf-hG-qeq" firstAttribute="top" secondItem="qhE-EH-pGl" secondAttribute="top" constant="19" id="Wqf-Fo-UxW"/>
                             <constraint firstAttribute="height" constant="84" id="WzZ-Pt-0wq"/>
                             <constraint firstItem="Kj9-YB-y6g" firstAttribute="leading" secondItem="qhE-EH-pGl" secondAttribute="leading" constant="16" id="aE6-Yy-YZ9"/>
@@ -109,21 +110,26 @@
                         </constraints>
                     </imageView>
                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="gte-QB-lBO">
-                        <rect key="frame" x="-20" y="188.5" width="139" height="27.5"/>
+                        <rect key="frame" x="20" y="184" width="100" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="2J4-5c-UwK"/>
+                            <constraint firstAttribute="height" constant="20" id="ixQ-An-9RX"/>
+                        </constraints>
                     </pageControl>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="qhE-EH-pGl" firstAttribute="top" secondItem="gte-QB-lBO" secondAttribute="bottom" constant="20" id="08R-SJ-X77"/>
                     <constraint firstAttribute="trailing" secondItem="nK4-Y3-XY8" secondAttribute="trailing" constant="20" id="5nz-AO-mrf"/>
-                    <constraint firstItem="qhE-EH-pGl" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottom" constant="-10" id="ATz-WT-JNJ"/>
+                    <constraint firstItem="qhE-EH-pGl" firstAttribute="top" secondItem="O1p-Pr-LIU" secondAttribute="bottom" constant="-42" id="7NS-EK-0ea"/>
+                    <constraint firstItem="qhE-EH-pGl" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottom" id="ATz-WT-JNJ"/>
                     <constraint firstItem="qhE-EH-pGl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="AoX-qU-5Xe"/>
                     <constraint firstAttribute="trailing" secondItem="qhE-EH-pGl" secondAttribute="trailing" constant="20" id="BjI-mF-Q38"/>
-                    <constraint firstItem="gte-QB-lBO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="-20" id="E7M-36-34m"/>
+                    <constraint firstItem="qhE-EH-pGl" firstAttribute="top" secondItem="gte-QB-lBO" secondAttribute="bottom" constant="35" id="Fzh-B5-WgD"/>
                     <constraint firstAttribute="trailing" secondItem="kc4-KD-XpR" secondAttribute="trailing" constant="20" id="Hvv-F9-hnu"/>
                     <constraint firstItem="O1p-Pr-LIU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="MfV-or-gwW"/>
                     <constraint firstItem="O1p-Pr-LIU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="SUB-tg-Shw"/>
                     <constraint firstAttribute="trailing" secondItem="O1p-Pr-LIU" secondAttribute="trailing" id="U43-qG-rc9"/>
                     <constraint firstItem="nK4-Y3-XY8" firstAttribute="top" secondItem="d2h-JJ-hXN" secondAttribute="bottom" constant="16" id="eO8-V2-M2k"/>
+                    <constraint firstItem="gte-QB-lBO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="jUw-Cf-w1w"/>
                     <constraint firstAttribute="trailing" secondItem="d2h-JJ-hXN" secondAttribute="trailing" constant="20" id="mDg-WD-6iz"/>
                     <constraint firstItem="kc4-KD-XpR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="sss-Ea-CPT"/>
                     <constraint firstItem="d2h-JJ-hXN" firstAttribute="top" secondItem="kc4-KD-XpR" secondAttribute="bottom" constant="52" id="uyR-6s-zf4"/>
@@ -131,6 +137,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="backgView" destination="qhE-EH-pGl" id="Ek8-Y9-ShI"/>
                 <outlet property="imagePoster" destination="O1p-Pr-LIU" id="bN5-LM-Zvk"/>
                 <outlet property="labelPrice" destination="QtR-8E-iOD" id="xqp-vX-YRr"/>
                 <outlet property="labelTitle" destination="7Nf-hG-qeq" id="NZu-RR-Zkf"/>

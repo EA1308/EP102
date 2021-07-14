@@ -9,15 +9,19 @@ import Foundation
 
 protocol NewTrendViewModelProtocol {
     func fetchProducts(completion: @escaping ([Product]) -> Void)
-    init(with productsManager: ProductsManagerProtocol)
+    var controller: CoordinatorDelegate { get }
+
+    init(with productsManager: ProductsManagerProtocol, controller: CoordinatorDelegate)
 }
 
 class NewTrendViewModel: NewTrendViewModelProtocol {
-    
+            
     private var productManager: ProductsManagerProtocol!
+    private(set) var controller: CoordinatorDelegate
     
-    required init(with productsManager: ProductsManagerProtocol) {
+    required init(with productsManager: ProductsManagerProtocol, controller: CoordinatorDelegate) {
         self.productManager = productsManager
+        self.controller = controller
     }
     
 

@@ -26,9 +26,4 @@ final class CartCoordinator: CoordinatorProtocol {
     
     }
     
-    func start() {
-        
-    }
-    
-    
 }

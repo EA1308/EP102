@@ -24,10 +24,5 @@ final class SearchCoordinator: CoordinatorProtocol {
         self.navigationController?.viewControllers = [vc]
     
     }
-    
-    func start() {
-        
-    }
-    
-    
+
 }

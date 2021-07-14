@@ -27,7 +27,7 @@ class NewTrendViewController: BaseViewController {
     
     private func configureCollectionView() {
         productManager = ProductManager()
-        viewModel = NewTrendViewModel(with: productManager)
+        viewModel = NewTrendViewModel(with: productManager, controller: self)
         dataSource = NewTrendDataSource(with: collectionView, viewModel: viewModel)
         dataSource.refresh()
         

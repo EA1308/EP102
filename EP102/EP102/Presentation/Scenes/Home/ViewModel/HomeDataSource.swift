@@ -113,7 +113,7 @@ extension HomeDataSource: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-            viewModel.controller.coordinator?.proceedToDetails()
+            viewModel.controller.coordinator?.proceedToNewTrends()
         }
     }
     

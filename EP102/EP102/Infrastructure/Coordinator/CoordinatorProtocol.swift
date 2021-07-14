@@ -13,11 +13,14 @@ protocol CoordinatorProtocol: AnyObject {
     init(_ window: UIWindow?, navigationController: UINavigationController?)
     
     func start()
-    func proceedToDetails()
- 
+    func proceedToNewTrends()
+    func proceedToDetails(with product: Product)
+
 }
 
 extension CoordinatorProtocol {
-    func proceedToDetails() {}
+    func start() {}
+    func proceedToNewTrends() {}
+    func proceedToDetails(with product: Product) {}
   
 }

@@ -9,8 +9,7 @@ import UIKit
 
 
 final class ProfileCoordinator: CoordinatorProtocol {
-    
-  
+
     var navigationController: UINavigationController?
 
     init(_ window: UIWindow? = nil, navigationController: UINavigationController? = UINavigationController()) {
@@ -25,10 +24,5 @@ final class ProfileCoordinator: CoordinatorProtocol {
         self.navigationController?.viewControllers = [vc]
     
     }
-    
-    func start() {
-        
-    }
-    
-    
+
 }
