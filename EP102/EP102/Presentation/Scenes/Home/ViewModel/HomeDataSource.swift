@@ -57,7 +57,7 @@ class HomeDataSource: NSObject {
 
 extension HomeDataSource: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
+        return 8
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -107,6 +107,12 @@ extension HomeDataSource: UITableViewDataSource, UITableViewDelegate {
             cell.configure(with: brandList)
             return cell
         }
+        
+        if indexPath.row == 7 {
+            let cell = tableView.deque(ShoppingHabitsCell.self, for: indexPath)
+            cell.configure(with: recentlyViewedProductsList)
+            return cell
+        }
         return cell
         
     }
@@ -130,6 +136,8 @@ extension HomeDataSource: UITableViewDataSource, UITableViewDelegate {
             return 295
         case 6:
             return 300
+        case 7:
+            return 280
         default:
             return UITableView.automaticDimension
         }

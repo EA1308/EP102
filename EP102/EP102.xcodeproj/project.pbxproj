@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA384AAD26A02FE4008FE54A /* ShoppingHabitsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA384AAB26A02FE4008FE54A /* ShoppingHabitsItem.swift */; };
+		FA384AAE26A02FE4008FE54A /* ShoppingHabitsItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA384AAC26A02FE4008FE54A /* ShoppingHabitsItem.xib */; };
+		FA384AB126A03001008FE54A /* ShoppingHabitsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA384AAF26A03001008FE54A /* ShoppingHabitsCell.swift */; };
+		FA384AB226A03001008FE54A /* ShoppingHabitsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA384AB026A03001008FE54A /* ShoppingHabitsCell.xib */; };
 		FA38DD98269F2AEC00F192B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA38DD2A269F2AEC00F192B7 /* AppDelegate.swift */; };
 		FA38DD99269F2AEC00F192B7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA38DD2B269F2AEC00F192B7 /* SceneDelegate.swift */; };
 		FA38DD9A269F2AEC00F192B7 /* SavedProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA38DD2E269F2AEC00F192B7 /* SavedProduct.swift */; };
@@ -87,6 +91,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA384AAB26A02FE4008FE54A /* ShoppingHabitsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingHabitsItem.swift; sourceTree = "<group>"; };
+		FA384AAC26A02FE4008FE54A /* ShoppingHabitsItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShoppingHabitsItem.xib; sourceTree = "<group>"; };
+		FA384AAF26A03001008FE54A /* ShoppingHabitsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingHabitsCell.swift; sourceTree = "<group>"; };
+		FA384AB026A03001008FE54A /* ShoppingHabitsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShoppingHabitsCell.xib; sourceTree = "<group>"; };
 		FA38DD2A269F2AEC00F192B7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA38DD2B269F2AEC00F192B7 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FA38DD2E269F2AEC00F192B7 /* SavedProduct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedProduct.swift; sourceTree = "<group>"; };
@@ -179,6 +187,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA384AA826A02FA7008FE54A /* ShoppingHabits */ = {
+			isa = PBXGroup;
+			children = (
+				FA384AAA26A02FBD008FE54A /* ShoppingHabitsItem */,
+				FA384AA926A02FB3008FE54A /* ShoppingHabitsCell */,
+			);
+			path = ShoppingHabits;
+			sourceTree = "<group>";
+		};
+		FA384AA926A02FB3008FE54A /* ShoppingHabitsCell */ = {
+			isa = PBXGroup;
+			children = (
+				FA384AAF26A03001008FE54A /* ShoppingHabitsCell.swift */,
+				FA384AB026A03001008FE54A /* ShoppingHabitsCell.xib */,
+			);
+			path = ShoppingHabitsCell;
+			sourceTree = "<group>";
+		};
+		FA384AAA26A02FBD008FE54A /* ShoppingHabitsItem */ = {
+			isa = PBXGroup;
+			children = (
+				FA384AAB26A02FE4008FE54A /* ShoppingHabitsItem.swift */,
+				FA384AAC26A02FE4008FE54A /* ShoppingHabitsItem.xib */,
+			);
+			path = ShoppingHabitsItem;
+			sourceTree = "<group>";
+		};
 		FA38DD29269F2AEC00F192B7 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -351,6 +386,7 @@
 		FA38DD57269F2AEC00F192B7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FA384AA826A02FA7008FE54A /* ShoppingHabits */,
 				FA3CD73F269F340100A56BCA /* Brands */,
 				FA38DD58269F2AEC00F192B7 /* Saved */,
 				FA38DD5F269F2AEC00F192B7 /* RecentlyViewed */,
@@ -775,6 +811,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA3CD745269F343400A56BCA /* BrandsItem.xib in Resources */,
+				FA384AAE26A02FE4008FE54A /* ShoppingHabitsItem.xib in Resources */,
+				FA384AB226A03001008FE54A /* ShoppingHabitsCell.xib in Resources */,
 				FA38DDBB269F2AEC00F192B7 /* RecentlyViewedItem.xib in Resources */,
 				FA38DDC7269F2AEC00F192B7 /* SearchViewController.storyboard in Resources */,
 				FA38DDA8269F2AEC00F192B7 /* Assets.xcassets in Resources */,
@@ -812,6 +850,7 @@
 				FA38DDAB269F2AEC00F192B7 /* CategoryManager.swift in Sources */,
 				FA38DDA7269F2AEC00F192B7 /* UITableView + Extension.swift in Sources */,
 				FA38DDD7269F2AEC00F192B7 /* BaseViewController.swift in Sources */,
+				FA384AB126A03001008FE54A /* ShoppingHabitsCell.swift in Sources */,
 				FA38DDA0269F2AEC00F192B7 /* NetworkManager.swift in Sources */,
 				FA38DDC9269F2AEC00F192B7 /* ProfileViewController.swift in Sources */,
 				FA38DDCB269F2AEC00F192B7 /* NewTrendDataSource.swift in Sources */,
@@ -836,6 +875,7 @@
 				FA38DDA2269F2AEC00F192B7 /* UIView + Extension.swift in Sources */,
 				FA38DDCF269F2AEC00F192B7 /* NewTrendViewController.swift in Sources */,
 				FA3CD748269F344800A56BCA /* BrandsCell.swift in Sources */,
+				FA384AAD26A02FE4008FE54A /* ShoppingHabitsItem.swift in Sources */,
 				FA38DD9B269F2AEC00F192B7 /* Product.swift in Sources */,
 				FA38DDC1269F2AEC00F192B7 /* WideCell.swift in Sources */,
 				FA38DD9F269F2AEC00F192B7 /* CoordinatorDelegate.swift in Sources */,

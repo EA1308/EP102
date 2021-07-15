@@ -37,6 +37,7 @@ class HomeViewController: BaseViewController {
         tableView.registerNib(class: RecentlyViewedCell.self)
         tableView.registerNib(class: SavedCell.self)
         tableView.registerNib(class: BrandsCell.self)
+        tableView.registerNib(class: ShoppingHabitsCell.self)
     }
     
     func configureDataSource() {
