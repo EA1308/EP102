@@ -8,7 +8,7 @@
 import UIKit
 
 
-final class HomeDataSource: BaseDataSource, UITableViewDelegate {
+final class HomeDataSource: BaseDataSource {
     
     private static var viewModel: HomeViewModelProtocol!
 
@@ -27,9 +27,9 @@ final class HomeDataSource: BaseDataSource, UITableViewDelegate {
     }
 
     func fetchCategories() {
-        HomeDataSource.viewModel.fetchProducts { [unowned self] productList in
-            for product in productList {
-                self.singleCollectionViewSectionModels.append(self.productItem(data: product))
+        HomeDataSource.viewModel.fetchCategory { [unowned self] categoryList in
+            for category in categoryList {
+                self.singleCollectionViewSectionModels.append(self.productItem(data: category))
             }
             self.collectionView?.reloadData()
 
@@ -78,13 +78,13 @@ final class HomeDataSource: BaseDataSource, UITableViewDelegate {
     
     override func refresh() {
         
-      
+        multiSectionModels = [[], [], [], [], [], [], [], []]
+
         let wideCellData1 = WideCellData(title: "New Trend", image: "img_newTrend")
         let wideCellData2 = WideCellData(title: "Strippes", image: "img_stripples")
         let wideCellData3 = WideCellData(title: "Summer Sea", image: "img_summerSea")
 
         
-        multiSectionModels = [[], [], [], [], [], [], [], []]
         multiSectionModels[0].append(wideCell(data: wideCellData1))
         
         multiSectionModels[1].append(productCell)

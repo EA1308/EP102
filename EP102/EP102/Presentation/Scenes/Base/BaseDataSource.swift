@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BaseDataSource: NSObject {
+class BaseDataSource: NSObject, UITableViewDelegate {
     
     
     var singleSectionModels: [CellItem]!
@@ -19,6 +19,7 @@ class BaseDataSource: NSObject {
     weak var tableView: UITableView? {
         didSet {
             tableView?.dataSource = self
+            tableView?.delegate = self
         }
     }
     
@@ -99,6 +100,40 @@ extension BaseDataSource: UITableViewDataSource {
         } else {
             fatalError("No models set up!")
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        let cellViewModel = items(for: indexPath.section)[indexPath.row]
+        let cell: UITableViewCell
+        
+        switch cellViewModel.cellIdentifier {
+        case WideCell.identifier:
+           return 190
+        case ProductCell.identifier:
+           return 450
+        case RecentlyViewedCell.identifier:
+            return 310
+        case SavedCell.identifier:
+            return 350
+        case BrandsCell.identifier:
+          return 310
+        case ShoppingHabitsCell.identifier:
+            return 310
+        default:
+            if let _cell = initCustomCell(for: indexPath, with: cellViewModel.cellIdentifier) {
+                cell = _cell
+            } else {
+                fatalError()
+            }
+        }
+        
+        if let configurableCell = cell as? CellConfigurable {
+            configurableCell.configure(with: cellViewModel)
+        }
+        
+        return 0
+        
     }
 }
 

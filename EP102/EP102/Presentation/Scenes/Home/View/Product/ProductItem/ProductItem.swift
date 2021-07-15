@@ -30,6 +30,7 @@ class ProductItem: UICollectionViewCell, CollectionViewCellConfigurable {
         labelProductTitle.text = data.category
         labelDescription.text = data.description
         let imageURL = URL(string: data.image ?? "")
+        imageProduct.kf.setImage(with: imageURL)
     }
     
     

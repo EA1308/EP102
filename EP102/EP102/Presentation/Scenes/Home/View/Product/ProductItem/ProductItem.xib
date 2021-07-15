@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ProductItem" customModule="EbayApp" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ProductItem" customModule="EP102" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="160" height="200"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -60,7 +60,9 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="wjS-sj-xFN" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="1Fx-q6-Ijn"/>
+                <constraint firstAttribute="bottom" secondItem="wjS-sj-xFN" secondAttribute="bottom" constant="5" id="NaP-j1-wQJ"/>
                 <constraint firstAttribute="trailing" secondItem="wjS-sj-xFN" secondAttribute="trailing" constant="5" id="UE5-Zv-e77"/>
+                <constraint firstItem="wjS-sj-xFN" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="37" id="VVu-2W-L9f"/>
                 <constraint firstAttribute="bottom" secondItem="wjS-sj-xFN" secondAttribute="bottom" constant="5" id="cKk-A8-LXC"/>
             </constraints>
             <connections>
