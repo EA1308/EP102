@@ -8,141 +8,136 @@
 import UIKit
 
 
-class HomeDataSource: NSObject {
-    private var tableView: UITableView!
-    private var viewModel: HomeViewModelProtocol!
-    var productsList: [Product]?
-    var categoryList: [Product]?
-    var recentlyViewedProductsList: [Product]?
-    var savedItems: [SavedProduct]?
-    var brandList: [Brand]?
+final class HomeDataSource: BaseDataSource, UITableViewDelegate {
     
-    
+    private static var viewModel: HomeViewModelProtocol!
+
     init(with tableView: UITableView, viewModel: HomeViewModelProtocol) {
         super.init()
         self.tableView = tableView
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
+        HomeDataSource.viewModel = viewModel
+        self.tableView?.delegate = self
+        multiSectionModels = []
+    }
+    
+    init (with collectionView: UICollectionView) {
+        super.init()
+        self.collectionView = collectionView
+        singleCollectionViewSectionModels = []
+    }
 
-        self.viewModel = viewModel
+    func fetchCategories() {
+        HomeDataSource.viewModel.fetchProducts { [unowned self] productList in
+            for product in productList {
+                self.singleCollectionViewSectionModels.append(self.productItem(data: product))
+            }
+            self.collectionView?.reloadData()
+
+        }
     }
     
-    func refresh() {
-        viewModel.fetchProducts { [weak self] productsList in
-            self?.productsList = productsList
-            self?.tableView.reloadData()
+    func fetchRecentlyItems() {
+        HomeDataSource.viewModel.fetchRecentlyViewed { [unowned self] recentlyList in
+            for recently in recentlyList {
+                self.singleCollectionViewSectionModels.append(self.recentlyViewedItem(data: recently))
+            }
+            self.collectionView?.reloadData()
         }
-        viewModel.fetchCategory { [weak self] categories in
-            self?.categoryList = categories
-            self?.tableView.reloadData()
+    }
+     
+    func fetchSavedItems() {
+        HomeDataSource.viewModel.fetchSaved { [unowned self] savedItems in
+            for savedItem in savedItems {
+                self.singleCollectionViewSectionModels.append(self.savedItem(data: savedItem))
+            }
+            self.collectionView?.reloadData()
+
         }
-        viewModel.fetchRecentlyViewed { [weak self] recentlyViewedProducts in
-            self?.recentlyViewedProductsList = recentlyViewedProducts
-            self?.tableView.reloadData()
+    }
+    
+    func fetchBrands() {
+        HomeDataSource.viewModel.fetchBrands { [unowned self] brands in
+            for brand in brands {
+                self.singleCollectionViewSectionModels.append(self.brandsItem(data: brand))
+            }
+            self.collectionView?.reloadData()
         }
-        
-        viewModel.fetchSaved { [weak self] savedItemsList  in
-            self?.savedItems = savedItemsList
-            self?.tableView.reloadData()
+    }
+    
+    func fetchHabits() {
+        HomeDataSource.viewModel.fetchRecentlyViewed { [unowned self] habitsList in
+            for habit in habitsList {
+                self.singleCollectionViewSectionModels.append(self.shoppingHabitsItem(data: habit))
+            }
+            self.collectionView?.reloadData()
         }
-        viewModel.fetchBrands { [weak self] brands in
-            self?.brandList = brands
-            self?.tableView.reloadData()
-        }
-        
     }
     
     
+
+    
+    override func refresh() {
+        
+      
+        let wideCellData1 = WideCellData(title: "New Trend", image: "img_newTrend")
+        let wideCellData2 = WideCellData(title: "Strippes", image: "img_stripples")
+        let wideCellData3 = WideCellData(title: "Summer Sea", image: "img_summerSea")
+
+        
+        multiSectionModels = [[], [], [], [], [], [], [], []]
+        multiSectionModels[0].append(wideCell(data: wideCellData1))
+        
+        multiSectionModels[1].append(productCell)
+        
+        multiSectionModels[2].append(wideCell(data: wideCellData2))
+        multiSectionModels[3].append(wideCell(data: wideCellData3))
+        
+        multiSectionModels[4].append(recentlyViewed)
+        multiSectionModels[5].append(savedCell)
+        multiSectionModels[6].append(brandsCell)
+        multiSectionModels[7].append(shoppingHabitsCell)
+        
+        tableView?.reloadData()
+
+    }
 }
 
-extension HomeDataSource: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8
+private extension HomeDataSource {
+    private func wideCell(data: WideCellData) -> CellViewModel {
+        return CellViewModel(cellIdentifier: WideCell.identifier, userData: [.data: data])
+    }
+    private var productCell: CellViewModel {
+        return CellViewModel(cellIdentifier: ProductCell.identifier)
+    }
+    private var recentlyViewed: CellViewModel {
+        return CellViewModel(cellIdentifier: RecentlyViewedCell.identifier)
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        let cellIndex = indexPath.row
-        cell.selectionStyle = .none
-        if cellIndex == 0 {
-            let cell = tableView.deque(WideCell.self, for: indexPath)
-            cell.configureNewTrend()
-            cell.selectionStyle = .none
+    private var savedCell: CellViewModel {
+        return CellViewModel(cellIdentifier: SavedCell.identifier)
+    }
+    private var brandsCell: CellViewModel {
+        return CellViewModel(cellIdentifier: BrandsCell.identifier)
+    }
+    private var shoppingHabitsCell: CellViewModel {
+        return CellViewModel(cellIdentifier: ShoppingHabitsCell.identifier)
+    }
+}
 
-            return cell
-        }
-        
-        if cellIndex == 1 {
-            let cell = tableView.deque(ProductCell.self, for: indexPath)
-            cell.configure(with: categoryList ?? [])
-            return cell
-        }
-        
-        if indexPath.row == 2 {
-            let cell = tableView.deque(WideCell.self, for: indexPath)
-            cell.configureStrippes()
-            return cell
-        }
-        
-        if indexPath.row == 3 {
-            let cell = tableView.deque(WideCell.self, for: indexPath)
-            cell.configureSummerSea()
-            return cell
-        }
-        
-        if indexPath.row == 4 {
-            let cell = tableView.deque(RecentlyViewedCell.self, for: indexPath)
-            cell.configure(with: recentlyViewedProductsList)
-            return cell
-        }
-        
-        if indexPath.row == 5 {
-            let cell = tableView.deque(SavedCell.self, for: indexPath)
-            cell.configure(with: savedItems)
-            return cell
-        }
-        
-        if indexPath.row == 6 {
-            let cell = tableView.deque(BrandsCell.self, for: indexPath)
-            cell.configure(with: brandList)
-            return cell
-        }
-        
-        if indexPath.row == 7 {
-            let cell = tableView.deque(ShoppingHabitsCell.self, for: indexPath)
-            cell.configure(with: recentlyViewedProductsList)
-            return cell
-        }
-        return cell
-        
+private extension HomeDataSource {
+    private func productItem(data: Product) -> CellViewModel {
+        return CellViewModel(cellIdentifier: ProductItem.identifier, userData: [.data: data])
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
-            viewModel.controller.coordinator?.proceedToNewTrends()
-        }
+    private func recentlyViewedItem(data: Product) -> CellViewModel {
+        return CellViewModel(cellIdentifier: RecentlyViewedItem.identifier, userData: [.data: data])
     }
-    
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch indexPath.row {
-        case 0, 2, 3 :
-            return 190
-        case 1:
-            return 450
-        case 4:
-            return 280
-        case 5:
-            return 295
-        case 6:
-            return 300
-        case 7:
-            return 280
-        default:
-            return UITableView.automaticDimension
-        }
+    private func savedItem(data: SavedProduct) -> CellViewModel {
+        return CellViewModel(cellIdentifier: SavedItem.identifier, userData: [.data: data])
     }
-    
-    
-
+    private func brandsItem(data: Brand) -> CellViewModel {
+        return CellViewModel(cellIdentifier: BrandsItem.identifier, userData: [.data: data])
+    }
+    private func shoppingHabitsItem(data: Product) -> CellViewModel {
+        return CellViewModel(cellIdentifier: ShoppingHabitsItem.identifier, userData: [.data: data])
+    }
 }

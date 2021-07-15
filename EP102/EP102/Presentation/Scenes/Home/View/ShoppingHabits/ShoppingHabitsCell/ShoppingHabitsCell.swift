@@ -8,22 +8,23 @@
 import UIKit
 
 class ShoppingHabitsCell: UITableViewCell {
-    
+
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    private var homeDataSource: HomeDataSource!
     
     private var recentlyViewedList: [Product]?
     override func awakeFromNib() {
         super.awakeFromNib()
         setupCollectionView()
         collectionViewLayout()
-        
+        configureDataSource()
+
     }
     
     func setupCollectionView() {
         collectionView.isScrollEnabled = false
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.registerNib(class: RecentlyViewedItem.self)
+        collectionView.registerNib(class: ShoppingHabitsItem.self)
     }
     
     private func collectionViewLayout() {
@@ -34,25 +35,14 @@ class ShoppingHabitsCell: UITableViewCell {
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 19)
         collectionView.collectionViewLayout = layout
     }
+
     
-    func configure(with items: [Product]?) {
-        self.recentlyViewedList = items
-        self.collectionView.reloadData()
+    func configureDataSource() {
+        homeDataSource = HomeDataSource(with: collectionView)
+        homeDataSource.fetchHabits()
+        
     }
     
 }
 
 
-extension ShoppingHabitsCell: UICollectionViewDataSource, UICollectionViewDelegate {
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return recentlyViewedList?.count ?? 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.deque(RecentlyViewedItem.self, for: indexPath)
-        cell.configure(with: recentlyViewedList?[indexPath.row])
-        return cell
-    }
-    
-}

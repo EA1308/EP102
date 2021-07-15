@@ -11,17 +11,14 @@ class ProductCell: UITableViewCell {
     
     
     @IBOutlet weak var collectionView: UICollectionView!
-    
-    private var categoryList: [Product]?
+    private var homeDataSource: HomeDataSource!
+//    private var categoryList: [Product]?
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        
         collectionView.isScrollEnabled = false
-        collectionView.dataSource = self
-        collectionView.delegate = self
         collectionView.registerNib(class: ProductItem.self)
         collectionViewLayout()
+        configureDataSource()
     }
     
     private func collectionViewLayout() {
@@ -33,24 +30,13 @@ class ProductCell: UITableViewCell {
         collectionView.collectionViewLayout = layout
     }
     
-    
-    func configure(with items: [Product]) {
-        self.categoryList = items
-        self.collectionView.reloadData()
-        
+
+
+    func configureDataSource() {
+        homeDataSource = HomeDataSource(with: collectionView)
+        homeDataSource.fetchCategories()
     }
+    
     
 }
 
-extension ProductCell: UICollectionViewDataSource, UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categoryList?.count ?? 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.deque(ProductItem.self, for: indexPath)
-        cell.configure(with: categoryList?[indexPath.row])
-        return cell
-    }
-    
-}

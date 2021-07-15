@@ -10,19 +10,18 @@ import UIKit
 class RecentlyViewedCell: UITableViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    
+    private var homeDataSource: HomeDataSource!
     private var recentlyViewedList: [Product]?
     override func awakeFromNib() {
         super.awakeFromNib()
         setupCollectionView()
         collectionViewLayout()
+        configureDataSource()
         
     }
     
     func setupCollectionView() {
         collectionView.isScrollEnabled = false
-        collectionView.dataSource = self
-        collectionView.delegate = self
         collectionView.registerNib(class: RecentlyViewedItem.self)
     }
     
@@ -35,24 +34,10 @@ class RecentlyViewedCell: UITableViewCell {
         collectionView.collectionViewLayout = layout
     }
     
-    func configure(with items: [Product]?) {
-        self.recentlyViewedList = items
-        self.collectionView.reloadData()
-    }
+
     
+    func configureDataSource() {
+        homeDataSource = HomeDataSource(with: collectionView)
+        homeDataSource.fetchRecentlyItems()
+    }
 }
-
-
-extension RecentlyViewedCell: UICollectionViewDataSource, UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return recentlyViewedList?.count ?? 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.deque(RecentlyViewedItem.self, for: indexPath)
-        cell.configure(with: recentlyViewedList?[indexPath.row])
-        return cell
-    }
-    
-}
-

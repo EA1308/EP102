@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WideCell: UITableViewCell {
+class WideCell: UITableViewCell, CellConfigurable {
 
     @IBOutlet weak var imagePoster: UIImageView!
     @IBOutlet weak var backView: UIView!
@@ -37,9 +37,15 @@ class WideCell: UITableViewCell {
     }
     
   
-   
-
-    
-    
+    func configure(with item: CellItem) {
+        guard let model = item as? CellViewModel,
+              let data = model.userData[.data] as? WideCellData else {return}
+        labelTitle.text = data.title
+        imagePoster.image = UIImage(named: data.image)
+    }
 }
 
+struct WideCellData {
+    let title: String
+    let image: String
+}

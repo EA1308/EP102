@@ -7,23 +7,21 @@
 
 import UIKit
 
-class BrandsItem: UICollectionViewCell {
+class BrandsItem: UICollectionViewCell, CollectionViewCellConfigurable {
 
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var labelBrand: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-//
-//        backView.frame.size.width = labelBrand.frame.size.width
-//        backView.frame.size.height = labelBrand.frame.size.height
+
         backView.layer.cornerRadius = 8
 
         
     }
 
-    func configure(with item: Brand?) {
-        labelBrand.text = item?.name
+    func configure(with item: CellItem) {
+        guard let model = item as? CellViewModel,
+              let data = model.userData[.data] as? Brand else {return}
+        labelBrand.text = data.name
     }
-    
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ShoppingHabitsItem: UICollectionViewCell {
+class ShoppingHabitsItem: UICollectionViewCell, CollectionViewCellConfigurable  {
 
     @IBOutlet weak var labelPrice: UILabel!
     @IBOutlet weak var labelTitle: UILabel!
@@ -21,11 +21,14 @@ class ShoppingHabitsItem: UICollectionViewCell {
                            opacity: 0.1,
                            shadowRadius: 4.0)
     }
-    
-    func configure(with item: Product?) {
-        labelPrice.text = "$ \(item?.price ?? 0)"
-        labelTitle.text = item?.title
-        let imageURL = URL(string: item?.image ?? "")
+
+    func configure(with item: CellItem) {
+        guard let model = item as? CellViewModel,
+              let data = model.userData[.data] as? Product else {return}
+        labelPrice.text = "$ \(data.price ?? 0)"
+        labelTitle.text = data.title
+        let imageURL = URL(string: data.image ?? "")
         imageProduct.kf.setImage(with: imageURL)
+       
     }
 }

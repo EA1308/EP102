@@ -11,49 +11,31 @@ class BrandsCell: UITableViewCell {
 
     @IBOutlet weak var collectionView: UICollectionView!
     var brandList: [Brand]?
+    private var homeDataSource: HomeDataSource!
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
         collectionView.registerNib(class: BrandsItem.self)
-        collectionView.dataSource = self
-        collectionView.delegate = self
         collectionView.isScrollEnabled = false
+        configureDataSource()
+
     }
     
     private func collectionViewLayout() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-//        layout.itemSize = CGSize(width: UIScreen.main.bounds.width / 3 - 40 , height: 30)
         layout.minimumLineSpacing = 50
-//        layout.minimumInteritemSpacing = 100
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         collectionView.collectionViewLayout = layout
     }
 
-    func configure(with items: [Brand]?) {
-        self.brandList = items
-        collectionView.reloadData()
-    }
+        func configureDataSource() {
+            homeDataSource = HomeDataSource(with: collectionView)
+            
+            homeDataSource.fetchBrands()
+        }
+    
+    
 
 }
-
-extension BrandsCell: UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return brandList?.count ?? 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.deque(BrandsItem.self, for: indexPath)
-        cell.configure(with: brandList?[indexPath.row])
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-      
-        
-        return CGSize(width: Double(UIScreen.main.bounds.width) / 3 , height: 40)
-    }
-}
-
-
-

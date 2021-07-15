@@ -20,8 +20,9 @@ class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTableView()
         configureDataSource()
+
+        setupTableView()
         
     }
     
@@ -49,5 +50,6 @@ class HomeViewController: BaseViewController {
         viewModel = HomeViewModel(with: productsManager, categoryManager: categoryManager, recentlyViewedManager: recentlyViewedManager, savedManager: savedManager, brandManager: brandsManager, controller: self)
         dataSource = HomeDataSource(with: tableView, viewModel: viewModel)
         dataSource.refresh()
+      
     }
 }

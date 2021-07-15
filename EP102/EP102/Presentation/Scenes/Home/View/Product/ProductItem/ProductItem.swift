@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class ProductItem: UICollectionViewCell {
+class ProductItem: UICollectionViewCell, CollectionViewCellConfigurable {
 
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var labelProductTitle: UILabel!
@@ -22,14 +22,15 @@ class ProductItem: UICollectionViewCell {
                            opacity: 0.1,
                            shadowRadius: 4.0)
     }
-    
-    
-    func configure(with item: Product?) {
-        labelProductTitle.text = item?.category
-        labelDescription.text = item?.description
-        let imageURL = URL(string: item?.image ?? "")
-        imageProduct.kf.setImage(with: imageURL)
-        
-    }
 
+    
+    func configure(with item: CellItem) {
+        guard let model = item as? CellViewModel,
+              let data = model.userData[.data] as? Product else {return}
+        labelProductTitle.text = data.category
+        labelDescription.text = data.description
+        let imageURL = URL(string: data.image ?? "")
+    }
+    
+    
 }

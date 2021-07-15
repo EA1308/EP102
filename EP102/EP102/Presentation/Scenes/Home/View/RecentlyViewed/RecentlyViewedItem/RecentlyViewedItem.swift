@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RecentlyViewedItem: UICollectionViewCell {
+class RecentlyViewedItem: UICollectionViewCell, CollectionViewCellConfigurable {
 
     @IBOutlet weak var labelDescription: UILabel!
     @IBOutlet weak var imagePoster: UIImageView!
@@ -22,9 +22,12 @@ class RecentlyViewedItem: UICollectionViewCell {
                            shadowRadius: 4.0)
     }
 
-    func configure(with item: Product?) {
-        labelDescription.text = item?.description
-        let imageURL = URL(string: item?.image ?? "")
+
+    func configure(with item: CellItem) {
+        guard let model = item as? CellViewModel,
+              let data = model.userData[.data] as? Product else {return}
+        labelDescription.text = data.description
+        let imageURL = URL(string: data.image ?? "")
         imagePoster.kf.setImage(with: imageURL)
     }
     

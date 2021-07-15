@@ -10,20 +10,19 @@ import UIKit
 class SavedCell: UITableViewCell {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    private var homeDataSource: HomeDataSource!
     
     var savedList: [SavedProduct]?
     override func awakeFromNib() {
         super.awakeFromNib()
         setupCollectionView()
-
         collectionViewLayout()
+        configureDataSource()
     }
     
 
     func setupCollectionView() {
         collectionView.isScrollEnabled = false
-        collectionView.dataSource = self
-        collectionView.delegate = self
         collectionView.registerNib(class: SavedItem.self)
     }
     
@@ -37,25 +36,10 @@ class SavedCell: UITableViewCell {
         collectionView.collectionViewLayout = layout
     }
     
-    func configure(with items: [SavedProduct]?) {
-        self.savedList = items
-        self.collectionView.reloadData()
-        
+    func configureDataSource() {
+        homeDataSource = HomeDataSource(with: collectionView)
+        homeDataSource.fetchSavedItems()
     }
     
 }
 
-
-extension SavedCell: UICollectionViewDataSource, UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return savedList?.count ?? 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.deque(SavedItem.self, for: indexPath)
-        cell.configure(with: savedList?[indexPath.row])
-        return cell
-    }
-    
-    
-}
